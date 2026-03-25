@@ -2,7 +2,7 @@
 set -euo pipefail
 
 REPO="aquia-inc/dsva-aws-auth"
-VERSION="v0.1.0"
+VERSION="v0.1.1"
 ASSET="aws-auth-${VERSION}-aarch64-apple-darwin.tar.gz"
 INSTALL_DIR="$HOME/.local/bin"
 
