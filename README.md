@@ -8,28 +8,25 @@ Simple CLI tool for AWS MFA session authentication. Automates the multi-step pro
 - An MFA device associated with your IAM user
 - `jq` is **not** required — this tool handles JSON parsing natively
 
-## Install
+## Quick Install (macOS Apple Silicon)
 
 ```bash
-cargo install --path .
+curl -sL https://github.com/aquia-inc/dsva-aws-auth/releases/latest/download/aws-auth-v0.1.0-aarch64-apple-darwin.tar.gz | tar xz -C /usr/local/bin && echo 'aws-auth() { eval $(command aws-auth "$@"); }' >> ~/.zshrc && source ~/.zshrc
 ```
 
-Or build manually:
+## Install from Source
+
+Requires [Rust](https://rustup.rs/).
 
 ```bash
-cargo build --release
-# binary is at ./target/release/aws-auth
+cargo install --git https://github.com/aquia-inc/dsva-aws-auth
+echo 'aws-auth() { eval $(command aws-auth "$@"); }' >> ~/.zshrc
+source ~/.zshrc
 ```
 
 ## Usage
 
-Add a shell function to your `~/.zshrc` or `~/.bashrc`:
-
-```bash
-aws-auth() { eval $(command aws-auth "$@"); }
-```
-
-Then authenticate with your 6-digit MFA code:
+Authenticate with your 6-digit MFA code:
 
 ```bash
 aws-auth 123456
