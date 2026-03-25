@@ -10,10 +10,8 @@ Simple CLI tool for AWS MFA session authentication. Automates the multi-step pro
 
 ## Quick Install (macOS Apple Silicon)
 
-Requires [GitHub CLI](https://cli.github.com/) (`gh`) to be authenticated.
-
 ```bash
-gh repo clone aquia-inc/dsva-aws-auth /tmp/dsva-aws-auth && /tmp/dsva-aws-auth/install.sh && rm -rf /tmp/dsva-aws-auth
+curl -sL https://raw.githubusercontent.com/aquia-inc/dsva-aws-auth/master/install.sh | bash
 ```
 
 ## Install from Source
