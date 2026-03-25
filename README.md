@@ -11,7 +11,7 @@ Simple CLI tool for AWS MFA session authentication. Automates the multi-step pro
 ## Quick Install (macOS Apple Silicon)
 
 ```bash
-curl -sL https://github.com/aquia-inc/dsva-aws-auth/releases/latest/download/aws-auth-v0.1.0-aarch64-apple-darwin.tar.gz | tar xz -C /usr/local/bin && echo 'aws-auth() { eval $(command aws-auth "$@"); }' >> ~/.zshrc && source ~/.zshrc
+curl -sL https://raw.githubusercontent.com/aquia-inc/dsva-aws-auth/master/install.sh | bash
 ```
 
 ## Install from Source
