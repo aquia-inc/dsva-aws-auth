@@ -23,6 +23,9 @@ struct Credentials {
 fn get_mfa_arn() -> Result<String, String> {
     let output = Command::new("aws")
         .args(["iam", "list-mfa-devices", "--query", "MFADevices[].SerialNumber", "--output", "text"])
+        .env_remove("AWS_ACCESS_KEY_ID")
+        .env_remove("AWS_SECRET_ACCESS_KEY")
+        .env_remove("AWS_SESSION_TOKEN")
         .output()
         .map_err(|e| format!("Failed to run aws cli: {e}"))?;
 
@@ -48,6 +51,9 @@ fn get_session_token(mfa_arn: &str, mfa_code: &str) -> Result<StsResponse, Strin
             "--serial-number", mfa_arn,
             "--token-code", mfa_code,
         ])
+        .env_remove("AWS_ACCESS_KEY_ID")
+        .env_remove("AWS_SECRET_ACCESS_KEY")
+        .env_remove("AWS_SESSION_TOKEN")
         .output()
         .map_err(|e| format!("Failed to run aws cli: {e}"))?;
 
